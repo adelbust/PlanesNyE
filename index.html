@@ -16,15 +16,17 @@
         <p>Selecciona el día de la semana:</p>
       </div>
 
-      <select id="day">
-        <option value="Lunes">Lunes</option>
-        <option value="Martes">Martes</option>
-        <option value="Miércoles">Miércoles</option>
-        <option value="Jueves">Jueves</option>
-        <option value="Viernes">Viernes</option>
-        <option value="Sábado">Sábado</option>
-        <option value="Domingo">Domingo</option>
-      </select>
+      <div class="selector-container">
+        <select id="day">
+          <option value="Lunes">Lunes</option>
+          <option value="Martes">Martes</option>
+          <option value="Miércoles">Miércoles</option>
+          <option value="Jueves">Jueves</option>
+          <option value="Viernes">Viernes</option>
+          <option value="Sábado">Sábado</option>
+          <option value="Domingo">Domingo</option>
+        </select>
+      </div>
 
       <div class="plans">
         <div class="plan training">
@@ -37,175 +39,8 @@
         </div>
       </div>
     </div>
-
-    <script>
-      function createVideoButton(url) {
-        const button = document.createElement("button");
-        button.classList.add("video-btn");
-        button.textContent = "Ver video";
-        button.addEventListener("click", () => {
-          const iframe = document.createElement("iframe");
-          iframe.src = url;
-          iframe.width = "560";
-          iframe.height = "315";
-          iframe.title = "YouTube video player";
-          iframe.frameBorder = "0";
-          iframe.allow =
-            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-          iframe.allowFullscreen = true;
-
-          const modal = document.createElement("div");
-          modal.classList.add("modal");
-          modal.appendChild(iframe);
-
-          modal.addEventListener("click", () => {
-            modal.remove();
-          });
-
-          document.body.appendChild(modal);
-        });
-
-        return button;
-      }
-
-      function createVideoButton(url) {
-        const button = document.createElement("button");
-        button.classList.add("video-btn");
-        button.textContent = "Ver video";
-        button.addEventListener("click", () => {
-          const iframe = document.createElement("iframe");
-          iframe.src = url;
-          iframe.width = "560";
-          iframe.height = "315";
-          iframe.title = "YouTube video player";
-          iframe.frameBorder = "0";
-          iframe.allow =
-            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-          iframe.allowFullscreen = true;
-
-          const modal = document.createElement("div");
-          modal.classList.add("modal");
-          modal.appendChild(iframe);
-
-          modal.addEventListener("click", () => {
-            modal.remove();
-          });
-
-          document.body.appendChild(modal);
-        });
-
-        return button;
-      }
-
-      // Datos de ejemplo para entrenamiento y nutrición
-      const plansData = {
-        Domingo: {
-          training: `
-            <h3>Entrenamiento de fuerza</h3>
-            <ul>
-              <li>Sentadillas: 4 series de 8 repeticiones ${
-                createVideoButton("https://www.youtube.com/embed/0Wsw5auLBIw")
-                  .outerHTML
-              }</li>
-              <li>Press de banca: 4 series de 8 repeticiones ${
-                createVideoButton("https://www.youtube.com/embed/tB3X4TjTIes")
-                  .outerHTML
-              }</li>
-              <li>Peso muerto: 4 series de 8 repeticiones ${
-                createVideoButton("https://www.youtube.com/embed/Y1IGeJEXpF4")
-                  .outerHTML
-              }</li>
-              <li>Dominadas: 4 series al fallo ${
-                createVideoButton("https://www.youtube.com/embed/eGo4IYlbE5g")
-                  .outerHTML
-              }</li>
-            </ul>
-          `,
-          nutrition: `
-            <h4>Desayuno:</h4>
-            <ul>
-              <li>Tortilla de 3 huevos con espinacas, tomate y queso</li>
-              <li>1 rebanada de pan integral tostado con mantequilla de almendras</li>
-              <li>1 taza de fresas</li>
-            </ul>
-            <h4>Almuerzo:</h4>
-            <ul>
-              <li>Sandwich de pavo con pan integral, lechuga, tomate y mostaza</li>
-              <li>1 taza de zanahorias baby</li>
-              <li>1 manzana</li>
-            </ul>
-            <h4>Cena:</h4>
-            <ul>
-              <li>150 g de salmón a la parrilla</li>
-              <li>1 taza de quinoa cocida</li>
-              <li>1 taza de judías verdes al vapor (o cualquier otra verdura que toleres)</li>
-            </ul>
-          `,
-        },
-        Martes: {
-          training: `
-            <h3>Entrenamiento de fuerza</h3>
-            <ul>
-              <li>Flexiones: 4 series de 10 repeticiones ${
-                createVideoButton("https://www.youtube.com/embed/4dF1DOWzf20")
-                  .outerHTML
-              }</li>
-              <li>Remo con mancuernas: 4 series de 10 repeticiones ${
-                createVideoButton("https://www.youtube.com/embed/Lkt_GPxi6iw")
-                  .outerHTML
-              }</li>
-              <li>Plancha: Mantener la posición durante 60 segundos ${
-                createVideoButton("https://www.youtube.com/embed/pSHjTRCQxIw")
-                  .outerHTML
-              }</li>
-            </ul>
-          `,
-          nutrition: `
-            <h4>Desayuno:</h4>
-            <ul>
-              <li>Avena con leche, miel, y frutos secos</li>
-              <li>1 plátano</li>
-            </ul>
-            <h4>Almuerzo:</h4>
-            <ul>
-              <li>Ensalada de pollo a la parrilla con lechuga, tomate, pepino y aderezo bajo en grasa</li>
-              <li>1 taza de uvas</li>
-            </ul>
-            <h4>Cena:</h4>
-            <ul>
-              <li>200 g de pechuga de pollo a la parrilla</li>
-              <li>1 taza de arroz integral cocido</li>
-              <li>1 taza de brócoli al vapor</li>
-            </ul>
-          `,
-        },
-        // ... Agregar más datos para el resto de los días de la semana
-      };
-
-      // Función para actualizar el contenido de entrenamiento y nutrición
-      function updateContent(day) {
-        const trainingContent = document.querySelector(
-          ".plan.training .plan-content"
-        );
-        const nutritionContent = document.querySelector(
-          ".plan.nutrition .plan-content"
-        );
-
-        if (plansData.hasOwnProperty(day)) {
-          trainingContent.innerHTML = plansData[day].training;
-          nutritionContent.innerHTML = plansData[day].nutrition;
-        } else {
-          trainingContent.innerHTML =
-            "No hay datos de entrenamiento para este día";
-          nutritionContent.innerHTML =
-            "No hay datos de nutrición para este día";
-        }
-      }
-
-      // Controlador de eventos para el selector de día
-      document.getElementById("day").addEventListener("change", (event) => {
-        updateContent(event.target.value);
-      });
-    </script>
   </body>
+
+  <script src="script.js"></script>
+
 </html>
