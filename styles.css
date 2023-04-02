@@ -1,138 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Futura:wght@300;400;500&display=swap');
-
-/* Agrega esta parte al principio de tu archivo CSS */
-.title-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #222;
-  height: 20vh;
-}
-
-.title-container h1 {
-  color: white;
-  font-size: 2rem;
-  margin: 0;
-  padding: 1rem;
-  text-align: center;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-@media screen and (max-width: 767px) {
-  .title-container {
-    height: 30vh; /* ajusta la altura según prefieras en dispositivos móviles */
-  }
-
-  .title-container h1 {
-    font-size: 1.5rem;
-  }
-}
-
+/* styles.css */
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Futura', sans-serif;
-  background-color: #222;
-  color: white;
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2rem auto;
-  max-width: 800px;
+.title-container {
+  background-color: #04ac9c;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
 }
+.container {
+  max-width: 1400px; /* Aumenta el ancho máximo */
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.plan {
+  flex: 1;
+  padding: 1rem;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  margin: 1rem;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%; /* Ajusta el ancho al 100% en dispositivos móviles */
+    padding: 1rem;
+  }
+
+  .plans {
+    flex-direction: column; /* Cambia la dirección de los elementos a vertical en dispositivos móviles */
+  }
+
+  .plan {
+    margin-bottom: 2rem; /* Aumenta el margen inferior para mejorar el espacio entre elementos */
+  }
+}
+
 
 .select-day-text {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-#day {
-  background-color: #04ac9c;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-family: 'Futura', sans-serif;
-  font-size: 16px;
-  margin-bottom: 1rem;
-  padding: 8px;
-  width: 100%;
-  max-width: 200px;
+.selector-container {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .plans {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 2rem;
+  gap: 40px;
+  justify-content: center;
 }
 
 .plan {
-  background-color: #77ccbc;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-  margin-bottom: 2rem;
-  padding: 2rem;
-  width: 100%;
-  max-width: 500px;
-}
-
-.plan.nutrition {
-  background-color: #7cccc4;
+  flex-basis: calc(50% - 20px);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
 }
 
 .plan h2 {
-  margin: 0;
-  margin-bottom: 1rem;
-  text-align: center;
-  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .plan-content {
-  margin-top: 1rem;
-}
-
-.plan ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-.plan li {
-  margin-bottom: 0.5rem;
-  font-weight: 300;
-  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 .video-btn {
   background-color: #04ac9c;
-  border: none;
-  border-radius: 5px;
   color: white;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
+  padding: 5px 10px;
   margin-left: 10px;
-  padding: 6px 12px;
+}
+
+.video-btn:hover {
+  background-color: #04ac9c;
 }
 
 .modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0,
-
-0.5);
+  display: none;
   position: fixed;
-  top: 0;
+  z-index: 1;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
