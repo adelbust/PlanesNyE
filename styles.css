@@ -1,17 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Futura:wght@300;400;500&display=swap');
 
-
 /* Agrega esta parte al principio de tu archivo CSS */
 .title-container {
-  background-image: url('https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh; /* ajusta la altura según prefieras */
-  width: 100%;
+  background-color: #222;
+  height: 20vh;
 }
 
 .title-container h1 {
@@ -47,16 +42,15 @@ body {
 
 .container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   margin: 2rem auto;
   max-width: 800px;
 }
 
-.selector-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
+.select-day-text {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 #day {
@@ -72,26 +66,37 @@ body {
   max-width: 200px;
 }
 
+.plans {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 2rem;
+}
+
 .plan {
+  background-color: #77ccbc;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
   margin-bottom: 2rem;
   padding: 2rem;
-  width: calc(50% - 1rem);
-}
-
-.plan.training {
-  background-color: #77ccbc;
+  width: 100%;
+  max-width: 500px;
 }
 
 .plan.nutrition {
   background-color: #7cccc4;
 }
 
-.plan h3, .plan h4 {
+.plan h2 {
   margin: 0;
   margin-bottom: 1rem;
+  text-align: center;
   text-transform: uppercase;
+}
+
+.plan-content {
+  margin-top: 1rem;
 }
 
 .plan ul {
@@ -103,6 +108,7 @@ body {
 .plan li {
   margin-bottom: 0.5rem;
   font-weight: 300;
+  font-size: 0.9rem;
 }
 
 .video-btn {
@@ -117,49 +123,66 @@ body {
 }
 
 .modal {
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  height: 100%;
   justify-content: center;
-  left: 0;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
   top: 0;
+  bottom: 0;
+  left: 0
+  right: 0;
+  z-index: 1;
+}
+
+.modal-content {
+  background-color: #222;
+  border-radius: 10px;
+  padding: 2rem;
   width: 100%;
-  z-index: 1000;
+  max-width: 500px;
 }
 
-/* Ajustar el ancho de los contenedores en dispositivos móviles */
-@media screen and (max-width: 767px) {
-  .plan-container {
-    width: 90%; /* Ajusta el ancho del contenedor en dispositivos móviles */
-    margin: 0 auto;
-  }
-
-  select#day {
-    width: auto;
-    max-width: 300px; /* Ajusta el ancho máximo según prefieras */
-    margin-bottom: 20px; /* Agrega un margen inferior */
-  }
-
-  .plan {
-    max-width: 90%; /* Ajusta el ancho máximo en la vista móvil */
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-
-ul {
+.modal-content h2 {
   margin: 0;
-  padding-left: 20px;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.plan {
-  overflow-wrap: break-word; /* Asegurar que las palabras largas se ajusten al contenedor */
+.modal-content p {
+  margin: 0;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
-#day {
-  margin: 0 auto;
-  display: block;
+.modal-content .close-btn {
+  background-color: #04ac9c;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 6px 12px;
 }
+
+.modal-content .close-btn:hover {
+  background-color: #04ac9c;
+}
+
+@media screen and (min-width: 768px) {
+  .plan {
+    margin-right: 2rem;
+  }
+}
+
+/* Agrega esta parte al final de tu archivo CSS */
+.modal {
+  display: none;
+}
+
+
+
+
+
