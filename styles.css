@@ -1,0 +1,134 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
+/* Estilos generales */
+body {
+    font-family: 'Futura', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #04ac9c;
+    padding: 1rem;
+  }
+  
+  header h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  main {
+    padding: 1rem;
+  }
+  
+  footer {
+    background-color: #04ac9c;
+    color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+  
+  /* Estilos para dividir los planes en dos columnas */
+  .plans {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .plan {
+    width: 48%;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo moderno para el botón Ver video */
+  .open-video-btn {
+    display: inline-block;
+    background-color: #04ac9c;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  
+  .open-video-btn:hover {
+    background-color: #039c87;
+  }
+  
+  /* Estilos para el botón de plegado y el contenido plegable */
+  .toggle-plan {
+    cursor: pointer;
+  }
+  
+  .plan-content {
+    margin-top: 1rem;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Estilos para los títulos */
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Estilos para el modal de video */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+  
+  .close-video-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close-video-btn:hover, .close-video-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .video-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+  }
+  

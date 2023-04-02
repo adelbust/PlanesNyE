@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Planes de Entrenamiento y Nutricionales</title>
+  </head>
+  <body>
+    <header>
+      <h1>Planes de Entrenamiento y Nutricionales</h1>
+    </header>
+
+    <main>
+      <div class="date-selector">
+        <label for="date">Seleccione el día:</label>
+        <input type="date" id="date" />
+      </div>
+
+      <div class="plans">
+        <section class="plan">
+          <h2 class="toggle-plan">Entrenamiento</h2>
+          <div class="plan-content">
+            <!-- Contenido del entrenamiento del día 1 -->
+            <!-- ... -->
+          </div>
+        </section>
+
+        <section class="plan">
+          <h2 class="toggle-plan">Nutrición</h2>
+          <div class="plan-content">
+            <!-- Contenido de la nutrición del día 1 -->
+            <!-- ... -->
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+      // Datos de ejemplo para entrenamiento y nutrición
+      const plansData = {
+        "2023-04-02": {
+          training: "Contenido del entrenamiento del día 1",
+          nutrition: "Contenido de la nutrición del día 1",
+        },
+        // ... Agregar más datos para otros días
+      };
+
+      // Obtén la fecha actual en formato "YYYY-MM-DD"
+      const today = new Date().toISOString().split("T")[0];
+
+      // Asegúrate de que existan datos para la fecha actual
+      if (!plansData.hasOwnProperty(today)) {
+        plansData[today] = {
+          training: "Contenido del entrenamiento de hoy",
+          nutrition: "Contenido de la nutrición de hoy",
+        };
+      }
+
+      // Función para actualizar el contenido de entrenamiento y nutrición
+      function updateContent(date) {
+        const trainingContent = document.querySelector(
+          ".plan.training .plan-content"
+        );
+        const nutritionContent = document.querySelector(
+          ".plan.nutrition .plan-content"
+        );
+
+        if (plansData.hasOwnProperty(date)) {
+          trainingContent.innerHTML = plansData[date].training;
+          nutritionContent.innerHTML = plansData[date].nutrition;
+        } else {
+          trainingContent.innerHTML =
+            "No hay datos de entrenamiento para esta fecha";
+          nutritionContent.innerHTML =
+            "No hay datos de nutrición para esta fecha";
+        }
+      }
+
+      // Controlador de eventos para el selector de fecha
+      document.getElementById("date").addEventListener("change", (event) => {
+        updateContent(event.target.value);
+      });
+
+      // Establecer la fecha actual como fecha predeterminada y actualizar el contenido
+      document.getElementById("date").value = today;
+      updateContent(today);
+    </script>
+  </body>
+</html>
