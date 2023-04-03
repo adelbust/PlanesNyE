@@ -3,47 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Plan de entrenamiento y nutrición</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="title-container">
-      <h1>Entrenamiento y Nutrición</h1>
-    </div>
-
-    <div class="container">
-      <div class="select-day-text">
-        <p>Selecciona el día de la semana:</p>
-      </div>
-
-      <div class="selector-container">
-        <select id="day">
-          <option value="Lunes">Lunes</option>
-          <option value="Martes">Martes</option>
-          <option value="Miércoles">Miércoles</option>
-          <option value="Jueves">Jueves</option>
-          <option value="Viernes">Viernes</option>
-          <option value="Sábado">Sábado</option>
-          <option value="Domingo">Domingo</option>
-        </select>
-      </div>
-
-      <div class="plans">
-        <div class="plan training">
-          <h2>Entrenamiento</h2>
-          <div class="plan-content">
+    <div class="content">
+ 
+    <div class="custom-container">
+      <div class="custom-column">
+        <a href="strength.html">
+          <div class="custom-flip-box">
+            <div class="custom-flip-box-front">
+              <h3>STRENGTH & CONDITIONING</h3>
+              <p>Take your goals to the next level</p>
+            </div>
           </div>
-        </div>
-        <div class="plan nutrition">
-          <h2>Nutrición</h2>
-          <div class="plan-content">
+        </a>
+      </div>
+      <div class="custom-column">
+        <a href="nutrition.html">
+          <div class="custom-flip-box">
+            <div class="custom-flip-box-front">
+              <h3>NUTRITION-DIETETICS</h3>
+              <p>Your nutrition is your daily performance</p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
 
-    <div class="modal">
+    <div class="modal video-modal">
       <div class="modal-content">
         <span class="close">&times;</span>
         <div id="video-container"></div>
@@ -51,5 +44,12 @@
     </div>
 
     <script src="script.js"></script>
+
+    </div>
+    <video autoplay muted loop id="bg-video">
+      <source src="video.mp4" type="video/mp4">
+      Tu navegador no soporta videos en HTML5.
+    </video>
+    
   </body>
 </html>
