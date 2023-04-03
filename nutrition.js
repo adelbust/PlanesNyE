@@ -1,12 +1,12 @@
 $(document).ready(function () {
     var days = [
-      "Lunes 3 de abril",
-      "Martes 4 de abril",
-      "Miércoles 5 de abril",
-      "Jueves 6 de abril",
-      "Viernes 7 de abril",
-      "Sábado 8 de abril",
-      "Domingo 9 de abril",
+      "Lunes ",
+      "Martes",
+      "Miércoles",
+      "Jueves ",
+      "Viernes",
+      "Sábado",
+      "Domingo",
     ];
     var currentDay = 0;
   
