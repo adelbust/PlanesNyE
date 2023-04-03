@@ -93,3 +93,4 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById(`${selectedDay}-nutrition`).style.display = "block";
   });
 });
+
