@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <title>Programas de entrenamiento - Strength</title>
@@ -14,80 +11,37 @@
   </head>
   <body>
     <div class="background-image"></div>
+
     <div class="content">
         <div class="header">
-            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i></a>
-            <h1>Programas de entrenamiento</h1>
+          <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i></a>
+        </div>
+
+        <div class="card">
+            <div class="day-navigation">
+              <button class="prev-day"><i class="fas fa-chevron-left"></i></button>
+              <h2>Lunes</h2>
+              <button class="next-day"><i class="fas fa-chevron-right"></i></button>
+            </div>
+
+            <div class="custom-container">
+              <div class="custom-column">
+                <h4>Entrenamiento 1:</h4>
+                <p>5 series de 5 repeticiones de sentadillas con barra.</p>
+                <h4>Entrenamiento 2:</h4>
+                <p>4 series de 8 repeticiones de press de banca.</p>
+                <h4>Entrenamiento 3:</h4>
+                <p>4 series de 10 repeticiones de peso muerto.</p>
+                <h4>Entrenamiento 4:</h4>
+                <p>4 series de 12 repeticiones de dominadas.</p>
+              </div>
+            </div>
           </div>
-          
-      <div class="custom-container">
-        <div class="custom-column">
-          <a href="#">
-            <div class="custom-flip-box">
-              <div class="custom-flip-box-front">
-                <h3>Programa de Fuerza</h3>
-                <p>Desarrolla tu fuerza al máximo</p>
-              </div>
-              <div class="custom-flip-box-back">
-                <h3>Programa de Fuerza</h3>
-                <p>
-                  Este programa está diseñado para aquellas personas que desean
-                  desarrollar su fuerza al máximo. Incluye ejercicios básicos de
-                  levantamiento de pesas, como sentadillas, press de banca y
-                  peso muerto, y se enfoca en el levantamiento de peso pesado
-                  con repeticiones bajas.
-                </p>
-                <a href="#" class="cta-button">Más información</a>
-              </div>
-            </div>
-          </a>
-        </div>
 
-        <div class="custom-column">
-          <a href="#">
-            <div class="custom-flip-box">
-              <div class="custom-flip-box-front">
-                <h3>Programa de Hipertrofia</h3>
-                <p>Aumenta tu masa muscular</p>
-              </div>
-              <div class="custom-flip-box-back">
-                <h3>Programa de Hipertrofia</h3>
-                <p>
-                  Este programa está diseñado para aquellas personas que desean
-                  aumentar su masa muscular. Incluye ejercicios de levantamiento
-                  de pesas para hipertrofia, como press de banca con mancuernas,
-                  curl de bíceps y extensiones de tríceps. Se enfoca en el
-                  levantamiento de peso moderado con repeticiones moderadas.
-                </p>
-                <a href="#" class="cta-button">Más información</a>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="custom-column">
-          <a href="#">
-            <div class="custom-flip-box">
-              <div class="custom-flip-box-front">
-                <h3>Programa de Entrenamiento Funcional</h3>
-                <p>Mejora tu movilidad y flexibilidad</p>
-              </div>
-              <div class="custom-flip-box-back">
-                <h3>Programa de Entrenamiento Funcional</h3>
-                <p>
-                  Este programa está diseñado para aquellas personas que desean
-                  mejorar su movilidad y flexibilidad. Incluye ejercicios de
-                  entrenamiento funcional, como sentadillas con una pierna y
-                  estocadas
-                </p>
-                <a href="#" class="cta-button">Más información</a>
-              </div>
-            </div>
-          </a>
-        </div>
       </div>
-    </div>
 
-    <script src="script.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="strength.js"></script>
+    </div>
   </body>
 </html>
