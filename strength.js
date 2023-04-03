@@ -1,82 +1,52 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var days = [
-      "Lunes",
-      "Martes",
-      "Miércoles",
-      "Jueves",
-      "Viernes",
-      "Sábado",
-      "Domingo",
-    ];
-    var currentDay = 0;
+document.addEventListener("DOMContentLoaded", function () {
+  let currentDay = 0;
+
+  function updateDay(workouts, day) {
+    const workout = workouts[day];
+    const dayNavigation = document.querySelector(".day-navigation h2");
+    const customColumn = document.querySelector(".custom-column");
+
+    dayNavigation.textContent = workout[0];
+    customColumn.innerHTML = "";
+
+    for (let i = 1; i < workout.length; i++) {
+      const workoutElement = document.createElement("p");
+      workoutElement.textContent = workout[i];
+      customColumn.appendChild(workoutElement);
+    }
+  }
+
+  function loadJSON(url, callback) {
+    const xhr = new XMLHttpRequest();
+    xhr.overrideMimeType("application/json");
+    xhr.open("GET", url, true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        const jsonData = JSON.parse(xhr.responseText);
+        console.log("Datos JSON cargados:", jsonData); // Agrega esta línea
+        callback(jsonData);
+      }
+    };
+    xhr.send(null);
+  }
   
-    document.querySelector('.prev-day').addEventListener('click', function () {
+
+  loadJSON("workouts.json", function (data) {
+    const workouts = data;
+    updateDay(workouts, currentDay);
+
+    document.querySelector(".prev-day").addEventListener("click", function () {
       if (currentDay > 0) {
         currentDay--;
-        updateDay(currentDay);
+        updateDay(workouts, currentDay);
       }
     });
-  
-    document.querySelector('.next-day').addEventListener('click', function () {
-      if (currentDay < days.length - 1) {
+
+    document.querySelector(".next-day").addEventListener("click", function () {
+      if (currentDay < workouts.length - 1) {
         currentDay++;
-        updateDay(currentDay);
+        updateDay(workouts, currentDay);
       }
     });
-  
-    function updateDay(day) {
-      document.querySelector('.day-navigation h2').textContent = days[day];
-  
-      // Modifica el contenido de los entrenamientos según tus necesidades
-      var workouts = [
-        [
-          "Entrenamiento 1 para Lunes",
-          "Entrenamiento 2 para Lunes",
-          "Entrenamiento 3 para Lunes",
-          "Entrenamiento 4 para Lunes",
-        ],
-        [
-          "Entrenamiento 1 para Martes",
-          "Entrenamiento 2 para Martes",
-          "Entrenamiento 3 para Martes",
-          "Entrenamiento 4 para Martes",
-        ],
-        [
-          "Entrenamiento 1 para Miércoles",
-          "Entrenamiento 2 para Miércoles",
-          "Entrenamiento 3 para Miércoles",
-          "Entrenamiento 4 para Miércoles",
-        ],
-        [
-          "Entrenamiento 1 para Jueves",
-          "Entrenamiento 2 para Jueves",
-          "Entrenamiento 3 para Jueves",
-          "Entrenamiento 4 para Jueves",
-        ],
-        [
-          "Entrenamiento 1 para Viernes",
-          "Entrenamiento 2 para Viernes",
-          "Entrenamiento 3 para Viernes",
-          "Entrenamiento 4 para Viernes",
-        ],
-        [
-          "Entrenamiento 1 para Sábado",
-          "Entrenamiento 2 para Sábado",
-          "Entrenamiento 3 para Sábado",
-          "Entrenamiento 4 para Sábado",
-        ],
-        [
-          "Entrenamiento 1 para Domingo",
-          "Entrenamiento 2 para Domingo",
-          "Entrenamiento 3 para Domingo",
-          "Entrenamiento 4 para Domingo",
-        ],
-      ];
-  
-      var workoutElements = document.querySelectorAll('.custom-column p');
-      for (var i = 0; i < workoutElements.length; i++) {
-        workoutElements[i].textContent = workouts[day][i];
-      }
-    }
   });
-  
+});
