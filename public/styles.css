@@ -311,3 +311,20 @@ a {
 #google-login-button:hover {
   background-color: #357AE8;
 }
+
+#invitado-button {
+  background-color: #04ac9c;
+  color: #FFF;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#invotado-button:hover {
+  background-color: #04ac9c;
+}
+
