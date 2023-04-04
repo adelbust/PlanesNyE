@@ -1,10 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-} from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signInWithPopup, onAuthStateChanged } from "firebase/auth";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -15,7 +12,7 @@ const firebaseConfig = {
   storageBucket: "strenght-nutrition.appspot.com",
   messagingSenderId: "368421385635",
   appId: "1:368421385635:web:fd15456d81f4fbac9a5616",
-  measurementId: "G-K7Y5YFN1YD",
+  measurementId: "G-K7Y5YFN1YD"
 };
 
 // Initialize Firebase
