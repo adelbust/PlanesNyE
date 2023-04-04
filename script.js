@@ -6,16 +6,16 @@ import {
   onAuthStateChanged,
 } from "firebase/compat/auth";
 
-// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  databaseURL: "YOUR_DATABASE_URL",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-  measurementId: "YOUR_MEASUREMENT_ID",
+  apiKey: "AIzaSyD_qYwXQt1uyKXtKXr8rcesr_LgQ6O1qDk",
+  authDomain: "strenght-nutrition.firebaseapp.com",
+  databaseURL: "https://strenght-nutrition-default-rtdb.firebaseio.com",
+  projectId: "strenght-nutrition",
+  storageBucket: "strenght-nutrition.appspot.com",
+  messagingSenderId: "368421385635",
+  appId: "1:368421385635:web:fd15456d81f4fbac9a5616",
+  measurementId: "G-K7Y5YFN1YD"
 };
 
 // Initialize Firebase
