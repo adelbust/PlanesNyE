@@ -1,3 +1,48 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
+
+// Reemplaza con tu configuración de Firebase
+const firebaseConfig = {
+  // Tus configuraciones de Firebase aquí
+};
+
+initializeApp(firebaseConfig);
+const auth = getAuth();
+
+const loginForm = document.getElementById('login-form');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const loginButton = document.getElementById('login-button');
+const buttons = document.getElementById('buttons');
+
+loginButton.addEventListener('click', () => {
+  loginUser(emailInput.value, passwordInput.value);
+});
+
+function loginUser(email, password) {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Inicio de sesión exitoso
+    })
+    .catch((error) => {
+      // Manejar errores aquí, como mostrar un mensaje de error
+      console.error(error.message);
+    });
+}
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // El usuario está autenticado
+    loginForm.style.display = 'none';
+    buttons.style.display = 'flex';
+  } else {
+    // El usuario no está autenticado
+    loginForm.style.display = 'block';
+    buttons.style.display = 'none';
+  }
+});
+
+
 function createVideoButton(url) {
   const button = document.createElement("button");
   button.classList.add("video-btn");

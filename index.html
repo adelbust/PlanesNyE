@@ -7,49 +7,60 @@
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Firebase App -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js"></script>
+    <!-- Firebase Authentication -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js"></script>
+
     <title>Plan de entrenamiento y nutrición</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="content">
- 
-    <div class="custom-container">
-      <div class="custom-column">
-        <a href="strength.html">
-          <div class="custom-flip-box">
-            <div class="custom-flip-box-front">
-              <h3>STRENGTH</h3>
-              <p>Take your goals to the next level</p>
-            </div>
+      <div id="login-form" class="login-form">
+        <h2>Iniciar sesión</h2>
+        <input type="email" id="email" placeholder="Correo electrónico" />
+        <input type="password" id="password" placeholder="Contraseña" />
+        <button id="login-button">Iniciar sesión</button>
+      </div>
+
+      <div id="app-content" class="hidden">
+        <div class="custom-container">
+          <div class="custom-column">
+            <a href="strength.html">
+              <div class="custom-flip-box">
+                <div class="custom-flip-box-front">
+                  <h3>STRENGTH</h3>
+                  <p>Take your goals to the next level</p>
+                </div>
+              </div>
+            </a>
           </div>
-        </a>
-      </div>
-      <div class="custom-column">
-        <a href="nutrition.html">
-          <div class="custom-flip-box">
-            <div class="custom-flip-box-front">
-              <h3>NUTRITION</h3>
-              <p>Your nutrition is your daily performance</p>
-            </div>
+          <div class="custom-column">
+            <a href="nutrition.html">
+              <div class="custom-flip-box">
+                <div class="custom-flip-box-front">
+                  <h3>NUTRITION</h3>
+                  <p>Your nutrition is your daily performance</p>
+                </div>
+              </div>
+            </a>
           </div>
-        </a>
+        </div>
       </div>
-    </div>
 
-    <div class="modal video-modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <div id="video-container"></div>
+      <div class="modal video-modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div id="video-container"></div>
+        </div>
       </div>
-    </div>
 
-    <script src="script.js"></script>
-
+      <script src="script.js"></script>
     </div>
     <video autoplay muted loop id="bg-video">
-      <source src="video.mp4" type="video/mp4">
+      <source src="video.mp4" type="video/mp4" />
       Tu navegador no soporta videos en HTML5.
     </video>
-    
   </body>
 </html>
