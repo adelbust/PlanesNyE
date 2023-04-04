@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider } from "firebase/auth";
@@ -87,6 +88,30 @@ function checkUserStatus() {
       loginForm.classList.remove("hidden");
       appContent.classList.add("hidden");
     }
+=======
+function createVideoButton(url) {
+  const button = document.createElement("button");
+  button.classList.add("video-btn");
+  button.textContent = "Ver video";
+  button.addEventListener("click", () => {
+    const videoModal = document.querySelector(".video-modal");
+    const videoContainer = document.querySelector("#video-container");
+
+    const iframe = document.createElement("iframe");
+    iframe.src = url;
+    iframe.width = "560";
+    iframe.height = "315";
+    iframe.title = "YouTube video player";
+    iframe.frameBorder = "0";
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+
+    videoContainer.innerHTML = "";
+    videoContainer.appendChild(iframe);
+
+    videoModal.style.display = "block";
+>>>>>>> parent of 55dbd94 (-)
   });
 }
 
