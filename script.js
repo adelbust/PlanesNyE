@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider } from "firebase/auth";
@@ -89,6 +90,8 @@ function checkUserStatus() {
       appContent.classList.add("hidden");
     }
 =======
+=======
+>>>>>>> parent of 55dbd94 (-)
 function createVideoButton(url) {
   const button = document.createElement("button");
   button.classList.add("video-btn");
