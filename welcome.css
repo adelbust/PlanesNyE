@@ -1,0 +1,115 @@
+/* General styles */
+body {
+  font-family: "Nunito Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Background video styles */
+#bg-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* Tarjetas y acordeones */
+.custom-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 30px;
+  min-height: 100vh;
+}
+
+.custom-column {
+  flex: 1;
+  max-width: 350px;
+}
+
+.custom-flip-box {
+  background-color: #04ac9c;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.custom-flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform-style: preserve-3d;
+}
+
+.custom-flip-box-front,
+.custom-flip-box-back {
+  background-color: #04ac9c;
+  color: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.8s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.custom-flip-box-front h3,
+.custom-flip-box-front p,
+.custom-flip-box-back h3,
+.custom-flip-box-back p {
+  margin: 0;
+}
+
+.custom-flip-box-back a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.custom-flip-box-back a:hover {
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  body {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+     opacity: 0.8; 
+  }
+  #bg-video {
+    display: none;
+  }
+}
+
+
+.card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  margin: 20px;
+}
