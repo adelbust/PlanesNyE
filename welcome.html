@@ -3,12 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Firebase App -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js"></script>
+    <!-- Firebase Authentication -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js"></script>
+
     <title>Plan de entrenamiento y nutrición</title>
     <link rel="stylesheet" href="styles.css" />
-
-    
   </head>
   <body>
     <div class="content">
@@ -17,10 +22,6 @@
         <input type="email" id="email" placeholder="Correo electrónico" />
         <input type="password" id="password" placeholder="Contraseña" />
         <button id="login-button">Iniciar sesión</button>
-        <!-- Agregar un botón de inicio de sesión con Google -->
-        <button id="google-login-button" class="google-login-button">
-          Iniciar sesión con Google
-        </button>
       </div>
 
       <div id="app-content" class="hidden">
@@ -48,17 +49,18 @@
         </div>
       </div>
 
-      <video autoplay muted loop id="bg-video">
-        <source src="video.mp4" type="video/mp4" />
-        Tu navegador no soporta videos en HTML5.
-      </video>
-    </div>
+      <div class="modal video-modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div id="video-container"></div>
+        </div>
+      </div>
 
-    <!-- Firebase App -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.9/firebase-app-compat.js"></script>
-    <!-- Firebase Authentication -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.9/firebase-auth-compat.js"></script>
-    
-    <script src="script.js" type="module"></script>
+      <script src="script.js"></script>
+    </div>
+    <video autoplay muted loop id="bg-video">
+      <source src="video.mp4" type="video/mp4" />
+      Tu navegador no soporta videos en HTML5.
+    </video>
   </body>
 </html>

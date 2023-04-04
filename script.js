@@ -1,21 +1,58 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
+// Importa la librería de Firebase
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import { initializeApp } from "firebase/app";
+import { GoogleAuthProvider } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  onAuthStateChanged,
+} from "firebase/auth";
 
-// Reemplaza con tu configuración de Firebase
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  // Tus configuraciones de Firebase aquí
+  apiKey: "AIzaSyD_qYwXQt1uyKXtKXr8rcesr_LgQ6O1qDk",
+  authDomain: "strenght-nutrition.firebaseapp.com",
+  databaseURL: "https://strenght-nutrition-default-rtdb.firebaseio.com",
+  projectId: "strenght-nutrition",
+  storageBucket: "strenght-nutrition.appspot.com",
+  messagingSenderId: "368421385635",
+  appId: "1:368421385635:web:fd15456d81f4fbac9a5616",
+  measurementId: "G-K7Y5YFN1YD",
 };
+// Inicializa Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-initializeApp(firebaseConfig);
-const auth = getAuth();
+const loginForm = document.getElementById("login-form");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const loginButton = document.getElementById("login-button");
+const buttons = document.getElementById("buttons");
 
-const loginForm = document.getElementById('login-form');
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-const loginButton = document.getElementById('login-button');
-const buttons = document.getElementById('buttons');
+// Obtener la instancia del proveedor de autenticación de Google
+const googleAuthProvider = new GoogleAuthProvider();
 
-loginButton.addEventListener('click', () => {
+// Agregar un listener al botón de inicio de sesión con Google
+const googleLoginButton = document.getElementById("google-login-button");
+googleLoginButton.addEventListener("click", () => {
+  signInWithGoogle();
+});
+
+// Función para iniciar sesión con Google
+function signInWithGoogle() {
+  signInWithPopup(auth, googleAuthProvider)
+    .then((result) => {
+      // El inicio de sesión con Google fue exitoso
+    })
+    .catch((error) => {
+      // Manejar errores aquí, como mostrar un mensaje de error
+      console.error(error.message);
+    });
+}
+
+loginButton.addEventListener("click", () => {
   loginUser(emailInput.value, passwordInput.value);
 });
 
@@ -33,109 +70,34 @@ function loginUser(email, password) {
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // El usuario está autenticado
-    loginForm.style.display = 'none';
-    buttons.style.display = 'flex';
+    loginForm.style.display = "none";
+    buttons.style.display = "flex";
   } else {
     // El usuario no está autenticado
-    loginForm.style.display = 'block';
-    buttons.style.display = 'none';
+    loginForm.style.display = "block";
+    buttons.style.display = "none";
   }
 });
 
+function checkUserStatus() {
+  const loginForm = document.getElementById("login-form");
+  const appContent = document.getElementById("app-content");
 
-function createVideoButton(url) {
-  const button = document.createElement("button");
-  button.classList.add("video-btn");
-  button.textContent = "Ver video";
-  button.addEventListener("click", () => {
-    const videoModal = document.querySelector(".video-modal");
-    const videoContainer = document.querySelector("#video-container");
-
-    const iframe = document.createElement("iframe");
-    iframe.src = url;
-    iframe.width = "560";
-    iframe.height = "315";
-    iframe.title = "YouTube video player";
-    iframe.frameBorder = "0";
-    iframe.allow =
-      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-    iframe.allowFullscreen = true;
-
-    videoContainer.innerHTML = "";
-    videoContainer.appendChild(iframe);
-
-    videoModal.style.display = "block";
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // El usuario está autenticado
+      loginForm.classList.add("hidden");
+      appContent.classList.remove("hidden");
+    } else {
+      // El usuario no está autenticado
+      loginForm.classList.remove("hidden");
+      appContent.classList.add("hidden");
+    }
   });
-
-  return button;
 }
 
-function insertVideoButton(liElement, url) {
-  liElement.appendChild(createVideoButton(url));
-}
-
-// Función para actualizar el contenido del entrenamiento y nutrición
-function updatePlanContent(day) {
-  const plans = document.querySelectorAll(".plan");
-  plans.forEach((plan) => {
-    plan.style.display = "none";
-  });
-
-  const trainingPlan = document.querySelector(`#${day}-training`);
-  const nutritionPlan = document.querySelector(`#${day}-nutrition`);
-
-  if (trainingPlan && nutritionPlan) {
-    trainingPlan.style.display = "block";
-    nutritionPlan.style.display = "block";
-  }
-}
-
-// Inicializar el contenido para el primer día (Lunes)
-updatePlanContent("Lunes");
-
-const daySelect = document.querySelector("#day");
-daySelect.addEventListener("change", (event) => {
-  updatePlanContent(event.target.value);
-});
-
-const closeModal = document.querySelector(".close");
-const videoModal = document.querySelector(".video-modal");
-
-closeModal.addEventListener("click", () => {
-  videoModal.style.display = "none";
-});
-
-window.addEventListener("click", (event) => {
-  if (event.target === videoModal) {
-    videoModal.style.display = "none";
-  }
-});
+checkUserStatus();
 
 document.addEventListener("DOMContentLoaded", function () {
-  const strengthConditioningSection = document.getElementById(
-    "strength-conditioning-section"
-  );
-  const nutritionDieteticsSection = document.getElementById(
-    "nutrition-dietetics-section"
-  );
-  const trainingPlans = document.querySelectorAll(".plan.training");
-  const nutritionPlans = document.querySelectorAll(".plan.nutrition");
-
-  function hideAllPlans() {
-    trainingPlans.forEach((plan) => (plan.style.display = "none"));
-    nutritionPlans.forEach((plan) => (plan.style.display = "none"));
-  }
-
-  strengthConditioningSection.addEventListener("click", function () {
-    hideAllPlans();
-    const selectedDay = document.getElementById("day").value;
-    document.getElementById(`${selectedDay}-training`).style.display = "block";
-  });
-
-  nutritionDieteticsSection.addEventListener("click", function () {
-    hideAllPlans();
-    const selectedDay = document.getElementById("day").value;
-    document.getElementById(`${selectedDay}-nutrition`).style.display = "block";
-  });
+  checkUserStatus();
 });
-
