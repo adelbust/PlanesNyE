@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "stagin": "strenght-nutrition",
+    "default": "strenght-nutrition",
+    "staging": "strenght-nutrition"
+  },
+  "targets": {},
+  "etags": {}
+}
