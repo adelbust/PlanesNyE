@@ -1,10 +1,10 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/compat/app";
+import { initializeApp } from "firebase/app";
 import {
   getAuth,
   signInWithEmailAndPassword,
   onAuthStateChanged,
-} from "firebase/compat/auth";
+} from "firebase/auth";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -15,7 +15,7 @@ const firebaseConfig = {
   storageBucket: "strenght-nutrition.appspot.com",
   messagingSenderId: "368421385635",
   appId: "1:368421385635:web:fd15456d81f4fbac9a5616",
-  measurementId: "G-K7Y5YFN1YD"
+  measurementId: "G-K7Y5YFN1YD",
 };
 
 // Initialize Firebase
@@ -27,6 +27,27 @@ const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const loginButton = document.getElementById("login-button");
 const buttons = document.getElementById("buttons");
+
+// Obtener la instancia del proveedor de autenticación de Google
+const googleAuthProvider = new GoogleAuthProvider();
+
+// Agregar un listener al botón de inicio de sesión con Google
+const googleLoginButton = document.getElementById("google-login-button");
+googleLoginButton.addEventListener("click", () => {
+  signInWithGoogle();
+});
+
+// Función para iniciar sesión con Google
+function signInWithGoogle() {
+  signInWithPopup(auth, googleAuthProvider)
+    .then((result) => {
+      // El inicio de sesión con Google fue exitoso
+    })
+    .catch((error) => {
+      // Manejar errores aquí, como mostrar un mensaje de error
+      console.error(error.message);
+    });
+}
 
 loginButton.addEventListener("click", () => {
   loginUser(emailInput.value, passwordInput.value);
